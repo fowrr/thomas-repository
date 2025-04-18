@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bb3fef76b1e34"
+path="res://.godot/imported/tinker.obj-b6d3ff680df57a40bcca4871d99b2d15.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tinker.obj-b6d3ff680df57a40bcca4871d99b2d15.mesh"]
+
+source_file="res://3D Models/Copy of Lawn Mower/tinker.obj"
+dest_files=["res://.godot/imported/tinker.obj-b6d3ff680df57a40bcca4871d99b2d15.mesh", "res://.godot/imported/tinker.obj-b6d3ff680df57a40bcca4871d99b2d15.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

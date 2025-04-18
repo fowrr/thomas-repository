@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cqqxuew32oano"
+path="res://.godot/imported/tinker.obj-bb834e6a6f3a381c0ee7429163e3352e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tinker.obj-bb834e6a6f3a381c0ee7429163e3352e.mesh"]
+
+source_file="res://3D Models/Copy of #Garden Raised Bed - Mother's Day/tinker.obj"
+dest_files=["res://.godot/imported/tinker.obj-bb834e6a6f3a381c0ee7429163e3352e.mesh", "res://.godot/imported/tinker.obj-bb834e6a6f3a381c0ee7429163e3352e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
