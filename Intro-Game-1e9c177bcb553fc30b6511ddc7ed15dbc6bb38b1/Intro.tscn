@@ -32,7 +32,7 @@ script/source = "extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-
+var mouse_sens = 0.3
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting(\"physics/3d/default_gravity\")
 
@@ -48,24 +48,30 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	#var input_dir = Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
-	#var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if Input.is_action_pressed(\"ui_up\"):
-		velocity.x = -SPEED
-		$MeshInstance3D.rotate_z(deg_to_rad(6))
-	elif Input.is_action_pressed(\"ui_down\"):
-		velocity.x = SPEED
-		$MeshInstance3D.rotate_z(deg_to_rad(-6))
-	elif Input.is_action_pressed(\"ui_left\"):
-		velocity.z = SPEED
-		$MeshInstance3D.rotate_x(deg_to_rad(-6))
-	elif Input.is_action_pressed(\"ui_right\"):
-		velocity.z = -SPEED
-		$MeshInstance3D.rotate_x(deg_to_rad(6))
+	var input_dir = Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * -SPEED
+		velocity.z = direction.z * -SPEED
+		if Input.is_action_pressed(\"ui_left\"):
+			$MeshInstance3D.rotate_z(deg_to_rad(-2))
+		if Input.is_action_pressed(\"ui_right\"):
+			$MeshInstance3D.rotate_z(deg_to_rad(2))
+		if Input.is_action_pressed(\"ui_up\"):
+			$MeshInstance3D.rotate_x(deg_to_rad(2))
+		if Input.is_action_pressed(\"ui_down\"):
+			$MeshInstance3D.rotate_x(deg_to_rad(-2))
+
 			
 	else:
 		velocity.x = move_toward(velocity.x, 0, .2)
 		velocity.z = move_toward(velocity.z, 0, .2)
+
+	
+func _input(event):  		
+	if event is InputEventMouseMotion and Input.is_action_pressed(\"Right Click\"):
+		rotate_y(deg_to_rad(-event.relative.x*mouse_sens))
+
 
 	move_and_slide()
 "
@@ -207,7 +213,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.85623, 11.6974, 1.09744)
 script = SubResource("GDScript_2ppte")
 
 [node name="Camera3D" type="Camera3D" parent="Ball"]
-transform = Transform3D(0.12921, -0.805546, 0.578274, 0.116627, 0.59146, 0.797855, -0.984735, -0.0356482, 0.170371, 2.35971, 4.25322, 0.202958)
+transform = Transform3D(-0.998149, 0.0605746, -0.00535491, 0.0444245, 0.786485, 0.61601, 0.0415261, 0.614632, -0.78772, -0.0129309, 4.25322, -2.89845)
 script = ExtResource("10_cjmgk")
 
 [node name="Control" type="Control" parent="."]
