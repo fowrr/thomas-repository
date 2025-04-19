@@ -66,11 +66,17 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, .2)
 		velocity.z = move_toward(velocity.z, 0, .2)
+	
+	if Input.is_action_pressed(\"Left Click\"):
+		rotate_y(deg_to_rad(1.5))
+	if Input.is_action_pressed(\"Right Click\"):
+		rotate_y(deg_to_rad(-1.5))
+		
 
 	
-func _input(event):  		
-	if event is InputEventMouseMotion and Input.is_action_pressed(\"Right Click\"):
-		rotate_y(deg_to_rad(-event.relative.x*mouse_sens))
+#func _input(event):  		
+#	if event is InputEventMouseMotion and Input.is_action_pressed(\"Right Click\"):
+#		rotate_y(deg_to_rad(-event.relative.x*mouse_sens))
 
 
 	move_and_slide()
